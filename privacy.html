@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Venu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0D0F14;
+      --surface: #131720;
+      --card:    #181D2A;
+      --border:  #232B3E;
+      --violet:  #7B61FF;
+      --violet2: #9B84FF;
+      --cyan:    #22D3EE;
+      --text:    #F8F9FA;
+      --muted:   #8B95A8;
+      --subtle:  #3D4A60;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(13,15,20,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 40%, var(--violet2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: color 0.2s;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 14px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* Main content */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--violet2);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .page-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      background: linear-gradient(135deg, #fff 30%, var(--violet2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .page-meta {
+      font-size: 14px;
+      color: var(--subtle);
+    }
+
+    /* Sections */
+    .policy-section {
+      margin-bottom: 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 28px;
+      transition: border-color 0.25s;
+    }
+    .policy-section:hover {
+      border-color: rgba(123,97,255,0.25);
+    }
+
+    .policy-section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .policy-section h2 .icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(123,97,255,0.12);
+      border: 1px solid rgba(123,97,255,0.25);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .policy-section p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-section ul li {
+      color: var(--muted);
+      font-size: 15px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .policy-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet2);
+      opacity: 0.7;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: rgba(123,97,255,0.08);
+      border: 1px solid rgba(123,97,255,0.25);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .contact-box h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .contact-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--violet), #9B84FF);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(123,97,255,0.3);
+    }
+    .contact-box a:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    footer .links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    footer .links a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer .links a:hover { color: var(--text); }
+
+    footer p {
+      color: var(--subtle);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbs -->
+  <div class="orb" style="width:500px;height:500px;top:-100px;left:-150px;background:rgba(123,97,255,0.12);"></div>
+  <div class="orb" style="width:350px;height:350px;bottom:100px;right:-100px;background:rgba(34,211,238,0.07);"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-logo">Venu</a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="page-header">
+      <span class="page-label">Legal</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-meta">Last updated: June 2025 &nbsp;·&nbsp; Effective immediately</p>
+    </div>
+
+    <!-- Intro -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        Our Commitment to You
+      </h2>
+      <p>Welcome to Venu. We are committed to protecting your personal information and being transparent about what we collect and how we use it. This Privacy Policy explains our practices for information collected through our website located at venu-app-tech.github.io.</p>
+      <p>By using our site and joining our waitlist, you agree to the collection and use of information as described in this policy.</p>
+    </div>
+
+    <!-- What we collect -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </span>
+        Information We Collect
+      </h2>
+      <p>We collect only the minimum information necessary to operate our waitlist and communicate with you:</p>
+      <ul>
+        <li>Your email address when you join our waitlist</li>
+        <li>The date and time you submitted your information</li>
+        <li>Basic analytics data such as pages visited and time spent on our site (if analytics are enabled)</li>
+      </ul>
+      <p style="margin-top:14px;">We do not collect your name, phone number, payment information, or any other personal details unless you voluntarily provide them by contacting us directly.</p>
+    </div>
+
+    <!-- How we use it -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </span>
+        How We Use Your Information
+      </h2>
+      <p>Your information is used solely for the following purposes:</p>
+      <ul>
+        <li>To notify you when Venu launches in your city</li>
+        <li>To send you updates about the product and early access opportunities</li>
+        <li>To communicate important announcements related to Venu</li>
+        <li>To understand general interest levels in different cities</li>
+      </ul>
+      <p style="margin-top:14px;">We will never use your email for spam, and we will never sell, rent, or trade your information to any third party for marketing purposes.</p>
+    </div>
+
+    <!-- Third party -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        Third Party Services
+      </h2>
+      <p>We use the following trusted third-party services to operate our site:</p>
+      <ul>
+        <li><strong style="color:var(--text);">Formspree</strong> — processes waitlist form submissions and stores your email securely</li>
+        <li><strong style="color:var(--text);">GitHub Pages</strong> — hosts our website</li>
+        <li><strong style="color:var(--text);">Google Fonts</strong> — loads fonts used in our site design</li>
+      </ul>
+      <p style="margin-top:14px;">Each of these services has their own privacy policies governing how they handle data. We encourage you to review their policies if you have concerns.</p>
+    </div>
+
+    <!-- Data storage -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </span>
+        Data Storage & Security
+      </h2>
+      <p>Your email address is stored securely through Formspree's encrypted servers. We take reasonable precautions to protect your information from unauthorized access, disclosure, or misuse.</p>
+      <p>We retain your information only for as long as necessary to fulfill the purposes described in this policy or until you request deletion.</p>
+    </div>
+
+    <!-- Your rights -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        Your Rights
+      </h2>
+      <p>You have full control over your personal information. At any time you may:</p>
+      <ul>
+        <li>Request to view the personal information we have on file for you</li>
+        <li>Request that we delete your email from our waitlist</li>
+        <li>Opt out of any future communications from us</li>
+        <li>Request a copy of your data in a portable format</li>
+      </ul>
+      <p style="margin-top:14px;">To exercise any of these rights, simply contact us at the email below and we will respond within 7 business days.</p>
+    </div>
+
+    <!-- Cookies -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        </span>
+        Cookies
+      </h2>
+      <p>Our website does not use tracking cookies or advertising cookies. We may use essential cookies required for basic site functionality only. We do not use your browsing data for advertising or retargeting purposes.</p>
+    </div>
+
+    <!-- Changes -->
+    <div class="policy-section">
+      <h2>
+        <span class="icon">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--violet2)" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </span>
+        Changes to This Policy
+      </h2>
+      <p>We may update this Privacy Policy from time to time as Venu grows and evolves. When we make changes, we will update the "Last updated" date at the top of this page.</p>
+      <p>We encourage you to review this policy periodically. Continued use of our site after changes are posted constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- Contact box -->
+    <div class="contact-box">
+      <h3>Questions about your privacy?</h3>
+      <p>We're happy to answer any questions you have about how we handle your data.</p>
+      <a href="mailto:Jbbiz2026@gmail.com">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Us
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="inner">
+      <a href="index.html" class="nav-logo" style="font-size:20px;">Venu</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#waitlist">Join Waitlist</a>
+        <a href="mailto:Jbbiz2026@gmail.com">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <p>© 2025 Venu. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
